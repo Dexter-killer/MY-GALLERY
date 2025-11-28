@@ -1,0 +1,105 @@
+/* ===== Сброс и базовые вещи ===== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Фон страницы ===== */
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Inter',
+    'Segoe UI', sans-serif;
+  color: #e5e7eb;
+  /* Спокойный тёмный фон с мягким градиентом */
+  background:
+    radial-gradient(circle at top, #020617 0, #020617 35%, #020617 100%),
+    linear-gradient(135deg, #020617 0%, #020617 40%, #020617 100%);
+}
+
+/* ===== Контейнер приложения и мягкие "пятна" позади ===== */
+
+.app-root {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 20px 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Едва заметные размытые круги, создают глубину, но не бьют по глазам */
+.app-root::before,
+.app-root::after {
+  content: '';
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  filter: blur(80px);
+  opacity: 0.35;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.app-root::before {
+  top: -80px;
+  left: -60px;
+  background: radial-gradient(circle at center, #4f46e5, transparent 60%);
+}
+
+.app-root::after {
+  bottom: -120px;
+  right: -90px;
+  background: radial-gradient(circle at center, #22c55e, transparent 60%);
+}
+
+/* ===== Хедер ===== */
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.app-logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f9fafb;
+}
+
+.app-logo span {
+  background: linear-gradient(120deg, #a855f7, #22c55e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.app-badge {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #cbd5f5;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+/* ===== Основной контент ===== */
+
+.app-main {
+  display: flex;
+  justify-content: center;
+}
